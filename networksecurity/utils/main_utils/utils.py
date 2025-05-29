@@ -14,16 +14,27 @@ def read_yaml_file(file_path: str) -> dict:
         raise NetworkSecurityException(e, sys) from e
 
 def write_yaml_file(file_path: str, content: dict, replace: bool = False) -> None:
-    """
-    Writes a dictionary or serializable content to a YAML file.
-
-    :param file_path: Path where the YAML file will be written.
-    :param content: Dictionary or serializable content to write.
-    :param replace: If True, replaces existing file; if False, skips writing if file exists.
-    """
     try:
         if replace or not os.path.exists(file_path):
             with open(file_path, "w") as file:
                 yaml.dump(content, file)
+    except Exception as e:
+        raise NetworkSecurityException(e, sys) from e
+
+def save_numpy_array_data(file_path: str, array: np.ndarray) -> None:
+    try:
+        dir_path = os.path.dirname(file_path)
+        os.makedirs(dir_path, exist_ok=True)
+        np.save(file_path, array)
+    except Exception as e:
+        raise NetworkSecurityException(e, sys) from e
+
+def save_object(file_path: str, obj: object) -> None:
+    try:
+        logging.info("Entered the save_object method of MainUtils class")
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        with open(file_path, "wb") as file_obj:
+            pickle.dump(obj, file_obj)
+        logging.info("Exited the save_object method of MainUtils class")
     except Exception as e:
         raise NetworkSecurityException(e, sys) from e
