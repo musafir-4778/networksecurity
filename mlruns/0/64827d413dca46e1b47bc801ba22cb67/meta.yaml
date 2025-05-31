@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/proj%20network%20security/mlruns/0/64827d413dca46e1b47bc801ba22cb67/artifacts
+end_time: 1748722859993
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 64827d413dca46e1b47bc801ba22cb67
+run_name: gregarious-fox-474
+run_uuid: 64827d413dca46e1b47bc801ba22cb67
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748722853687
+status: 3
+tags: []
+user_id: HPCND
